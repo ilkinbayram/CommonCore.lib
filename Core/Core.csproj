@@ -4,13 +4,18 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<!--The place for the Package Generation-->
 		<PackageId>MSeC.CommonCore</PackageId>
+		<Version>1.0.0-msec.ib</Version>
 		<Authors>CommonCore.Development</Authors>
 		<Company>CommonCore.Base</Company>
 		<Description>Library to implement NLayer architecture without Core Layer on the Microservice Project</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>Common, Core, Library, CommonCore, CommonCore library</PackageTags>
+		<RepositoryUrl>https://github.com/ilkinbayram/CommonCore.lib</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
