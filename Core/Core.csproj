@@ -9,7 +9,7 @@
 	<PropertyGroup>
 		<!--The place for the Package Generation-->
 		<PackageId>MSeC.CommonCore</PackageId>
-		<Version>1.0.1-msec.ib</Version>
+		<Version>2.0.0</Version>
 		<Authors>CommonCore.Development</Authors>
 		<Company>CommonCore.Base</Company>
 		<Description>Library to implement NLayer architecture without Core Layer on the Microservice Project</Description>
