@@ -16,6 +16,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageTags>Common, Core, Library, CommonCore, CommonCore library</PackageTags>
 		<RepositoryUrl>https://github.com/ilkinbayram/CommonCore.lib</RepositoryUrl>
+		<PackageIconUrl>https://res.cloudinary.com/devimgmovieroad/image/upload/v1695295913/Safeimagekit-resized-img_wbjztg.png</PackageIconUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
