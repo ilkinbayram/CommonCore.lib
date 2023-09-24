@@ -7,29 +7,32 @@ using CommonCore.Utilities.IoC;
 
 namespace CommonCore.Aspects.Autofac.Caching
 {
-    public class CacheAspect:MethodInterception
+    public class CacheAspect : MethodInterception
     {
         private int _duration;
         private ICacheManager _cacheManager;
+        private readonly bool _forceToCache;
+        private string _cacheKey;
 
-        public CacheAspect(int duration=60)
+        public CacheAspect(string cacheKey, int duration = 60, bool forceToCache = false)
         {
             _duration = duration;
             _cacheManager = ServiceTool.ServiceProvider.GetService<ICacheManager>();
+            _forceToCache = forceToCache;
+            _cacheKey = cacheKey;
         }
 
         public override void Intercept(IInvocation invocation)
         {
-            var methodName = string.Format($"{invocation.Method.ReflectedType.FullName}.{invocation.Method.Name}");
+            _cacheKey = string.Format($"{invocation.Method.ReflectedType.FullName}.{_cacheKey}");
             var arguments = invocation.Arguments.ToList();
-            var key = $"{methodName}({string.Join(",",arguments.Select(x=>x?.ToString()??"<Null>"))})";
-            if (_cacheManager.IsAdd(key))
+            if (_cacheManager.KeyExist(_cacheKey))
             {
-                invocation.ReturnValue = _cacheManager.Get(key);
+                invocation.ReturnValue = _cacheManager.Get(_cacheKey);
                 return;
             }
             invocation.Proceed();
-            _cacheManager.Add(key,invocation.ReturnValue,_duration);
+            _cacheManager.Add(_cacheKey, invocation.ReturnValue, _duration, _forceToCache);
         }
     }
 }
